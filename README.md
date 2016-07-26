@@ -4,7 +4,7 @@
 [![Codacy Badge][codacy-image]][codacy-url]
 [![Weppy Version](https://img.shields.io/badge/weppy-0.7.6-blue.svg)](https://github.com/gi0baro/weppy)
 
-# generator-wepit
+# generator-weppy
 
 **Currently in PRE-ALPHA**
  
@@ -23,13 +23,13 @@ Requires [npm](https://www.npmjs.com/).
 
 ```
 npm install -g yo
-npm install -g generator-wepit
+npm install -g generator-weppy
 ```
 
 ## Usage
 
 ```
-yo wepit
+yo weppy
 ```
 
 ### Current Features
@@ -73,16 +73,16 @@ mocha
 MIT © [mijdavis2](http://mdavisinsc.com)
 
 
-[npm-image]: https://badge.fury.io/js/generator-wepit.svg
-[npm-url]: https://npmjs.org/package/generator-wepit
-[travis-image]: https://travis-ci.org/mijdavis2/generator-wepit.svg?branch=master
-[travis-url]: https://travis-ci.org/mijdavis2/generator-wepit
-[coveralls-image]: https://coveralls.io/repos/mijdavis2/generator-wepit/badge.svg
-[coveralls-url]: https://coveralls.io/r/mijdavis2/generator-wepit
+[npm-image]: https://badge.fury.io/js/generator-weppy.svg
+[npm-url]: https://npmjs.org/package/generator-weppy
+[travis-image]: https://travis-ci.org/mijdavis2/generator-weppy.svg?branch=master
+[travis-url]: https://travis-ci.org/mijdavis2/generator-weppy
+[coveralls-image]: https://coveralls.io/repos/mijdavis2/generator-weppy/badge.svg
+[coveralls-url]: https://coveralls.io/r/mijdavis2/generator-weppy
 [codacy-image]: https://api.codacy.com/project/badge/Grade/ce0ad20ca59947af86b0f17a5779c804
-[codacy-url]: https://www.codacy.com/app/mijdavis2/generator-wepit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mijdavis2/generator-wepit&amp;utm_campaign=Badge_Grade
-[npm-info-image]: https://nodei.co/npm/generator-wepit.png?downloads=true&downloadRank=true&stars=true
-[npm-info-url]: https://nodei.co/npm/generator-wepit/
+[codacy-url]: https://www.codacy.com/app/mijdavis2/generator-weppy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mijdavis2/generator-weppy&amp;utm_campaign=Badge_Grade
+[npm-info-image]: https://nodei.co/npm/generator-weppy.png?downloads=true&downloadRank=true&stars=true
+[npm-info-url]: https://nodei.co/npm/generator-weppy/
 [starter-weppy-travis-img]: https://travis-ci.org/mijdavis2/starter_weppy.svg?branch=master
 [starter-weppy-travis-url]: https://travis-ci.org/mijdavis2/starter_weppy
 [st-weppy-coveralls-image]: https://coveralls.io/repos/mijdavis2/starter_weppy/badge.svg
