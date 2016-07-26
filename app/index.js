@@ -2,6 +2,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
+var weppyVersion = "0.7.7";
 
 
 module.exports = yeoman.Base.extend({
@@ -128,7 +129,8 @@ module.exports = yeoman.Base.extend({
       packageDescription: this.answers.packageDescription,
       license: this.answers.license,
       year: this._defaultYear(),
-      includeLicense: this.answers.includeLicense
+      includeLicense: this.answers.includeLicense,
+      weppyVersion: weppyVersion
     };
     if (this.answers.useDirectory != this.appname) {
       this.destinationRoot(this.answers.useDirectory);

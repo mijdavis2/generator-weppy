@@ -1,21 +1,26 @@
-### Description
+<!-- short description -->
 
-[Description of the bug or suggested feature]
+## Description
+<!-- more detailed reason/description of issue -->
 
-### Steps to Reproduce
 
-1. [First Step]
-2. [Second Step]
-3. [Other Steps...]
+### Steps to reproduce
+1.
+2.
+3.
 
-**Expected/Desired behavior:**
 
-[What you expected to happen]
+### Expected behaviour
 
-**Actual behavior:**
 
-[What actually happened]
+### Actual behaviour
 
-**Screenshots and GIFs**
 
-![Screenshots and GIFs which follow reproduction steps to demonstrate the problem](url)
+### Configuration
+**Operating system**:
+
+**Version:**
+<!-- please retry issue with latest version -->
+
+
+### Screenshots (if necessary)

@@ -12,8 +12,8 @@
 
 Build a full-stack python web application in minutes.
 
-This generator/cli is a tool for generating a new MVC style [weppy](https://github.com/gi0baro/weppy) application 
-and add new models, views, and controllers to an existing MVC weppy application.
+This generator/cli is a tool for generating new [weppy](https://github.com/gi0baro/weppy) applications
+and add new models, views, and controllers to an existing weppy applications.
 
 Weppy is a full-stack python web framework designed with simplicity in mind. 
 
@@ -38,8 +38,6 @@ Add components:
 
 ```
 yo weppy <component>
-
-A weppy framework cli:
   init:         initialize a weppy project (default)
   model:        add a model to your app
   view:         add a view to your app (optional when adding a controller)
