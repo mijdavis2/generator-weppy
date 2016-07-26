@@ -28,8 +28,22 @@ npm install -g generator-weppy
 
 ## Usage
 
+Initialize a weppy project
+
 ```
 yo weppy
+```
+
+Add components:
+
+```
+yo weppy <component>
+
+A weppy framework cli:
+  init:         initialize a weppy project (default)
+  model:        add a model to your app
+  view:         add a view to your app (optional when adding a controller)
+  controller:   add a controller to your app (optional when adding a view)
 ```
 
 ### Current Features
@@ -65,7 +79,7 @@ An api module, dev mode, and 100% test coverage are included out of the box.
 ## Testing
 
 ``` 
-mocha
+npm test
 ```
 
 ## License
