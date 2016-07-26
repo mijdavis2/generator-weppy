@@ -6,7 +6,9 @@
 
 # generator-weppy
 
-**Currently in PRE-ALPHA**
+**Currently in ALPHA**
+
+Component commands not yet supported
  
 [![NPM][npm-info-image]][npm-info-url]
 
