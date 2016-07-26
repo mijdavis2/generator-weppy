@@ -1,6 +1,5 @@
 {
   "name": "generator-weppy",
-  "version": "0.0.2",
   "description": "A cli for the weppy framework.",
   "keywords": [
     "yeoman-generator",
@@ -11,40 +10,86 @@
     "yo"
   ],
   "main": "app/index.js",
-  "homepage": "https://starter-weppy.com",
+  "homepage": "https://github.com/mijdavis2/generator-weppy",
   "directories": {
     "test": "test",
     "app": "app"
   },
   "scripts": {
-    "test": "mocha"
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p atom -i CHANGELOG.md -w -r 0",
+    "prepublish": "gulp prepublish",
+    "test": "gulp",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mijdavis2/generator-wepit.git"
+    "url": "https://github.com/mijdavis2/generator-weppy.git"
   },
   "author": "Michael Davis <mdavisinsc@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.0.0",
+    "conventional-changelog": "^1.1.0",
     "lodash": "^4.13.1",
-    "mocha": "^2.5.3",
     "yeoman-character": "^1.1.0",
     "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "yeoman-test": "^1.0.0",
-    "yeoman-assert": "^2.0.0",
+    "cz-conventional-changelog": "^1.1.6",
     "eslint": "^2.1.0",
     "eslint-config-xo-space": "^0.13.0",
+    "ghooks": "^1.3.2",
     "gulp": "^3.9.0",
     "gulp-eslint": "^2.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-ignore": "^2.0.1",
     "gulp-istanbul": "^0.10.3",
+    "gulp-line-ending-corrector": "^1.0.1",
     "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
-    "gulp-nsp": "^2.1.0"
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0",
+    "semantic-release": "^4.3.5",
+    "validate-commit-message": "^3.0.1",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "commit-msg": "validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 50,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": ""
+    }
   }
 }
