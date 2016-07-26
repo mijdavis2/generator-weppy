@@ -1,6 +1,5 @@
 {
   "name": "generator-weppy",
-  "version": "0.0.2",
   "description": "A cli for the weppy framework.",
   "keywords": [
     "yeoman-generator",
@@ -18,11 +17,12 @@
   },
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mijdavis2/generator-weppy.git"
+    "url": "https://github.com/mijdavis2/generator-weppy.git"
   },
   "author": "Michael Davis <mdavisinsc@gmail.com>",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6",
     "eslint": "^2.1.0",
     "eslint-config-xo-space": "^0.13.0",
     "gulp": "^3.9.0",
@@ -48,6 +49,7 @@
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
     "mocha-lcov-reporter": "^1.2.0",
+    "semantic-release": "^4.3.5",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
@@ -55,6 +57,11 @@
     "extends": "xo-space",
     "env": {
       "mocha": true
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
