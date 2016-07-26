@@ -20,7 +20,8 @@ module.exports.init = function (yoObj) {
     {
       type    : 'input',
       name    : 'username',
-      message : 'Your github username: '
+      message : 'Your github username: ',
+      store: true
     },
     {
       type    : 'list',
