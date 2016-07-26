@@ -1,4 +1,4 @@
-module.export.init = function(yoObj) {
+module.exports.init = function (yoObj) {
   return [
     {
       type    : 'input',
@@ -28,24 +28,24 @@ module.export.init = function(yoObj) {
       message : 'What minimum python version will you support?',
       choices : [
         {
-          "value": ["2","7","9"],
-          "name": "2.7.9"
+          value: ['2', '7', '9'],
+          name: '2.7.9'
         },
         {
-          "value": ["2","7","10"],
-          "name": "2.7.10"
+          value: ['2', '7', '10'],
+          name: '2.7.10'
         },
         {
-          "value": ["2","7","11"],
-          "name": "2.7.11"
+          value: ['2', '7', '11'],
+          name: '2.7.11'
         },
         {
-          "value": ["3","4","3"],
-          "name": "3.4.3"
+          value: ['3', '4', '3'],
+          name: '3.4.3'
         },
         {
-          "value": ["3","5","1"],
-          "name": "3.5.1"
+          value: ['3', '5', '1'],
+          name: '3.5.1'
         }
       ]
     },
@@ -55,22 +55,22 @@ module.export.init = function(yoObj) {
       type: 'list',
       choices : [
         {
-          "value": "MIT",
-          "name": "MIT"
+          value: 'MIT',
+          name: 'MIT'
         },
         {
-          "value": "ApacheV2",
-          "name": "Apache v2"
+          value: 'ApacheV2',
+          name: 'Apache v2'
         },
         {
-          "value": null,
-          "name": "None"
+          value: null,
+          name: 'None'
         }
       ]
     }
-  ]
+  ];
 };
 
-module.export.options = function() {
+module.exports.options = function () {
   return [];
 };

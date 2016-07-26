@@ -2,21 +2,29 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
-var prompts = require('./generator-prompts.js');
-
-var weppyVersion = "0.7.7";
 
 
 module.exports = yeoman.Base.extend({
-  _defaultYear: function() {
+  _weppyVersion: '0.7.7',
+
+  _defaultYear: function () {
     return (new Date).getFullYear();
   },
-  _getPrompts: function(yoObj) {
-    if (!this.cliAction || this.cliAction === 'init') {
-      return prompts.init(yoObj)
-    } else {
-      return prompts.options()
+
+  _getPrompts: function (yoObj) {
+    var prompts = require('./prompts.js');
+    if (this.cliAction === 'init') {
+      return prompts.init(yoObj);
     }
+    return prompts.options();
+  },
+
+  _runWriteService: function (yoObj) {
+    var services = require('./services.js');
+    if (this.cliAction === 'init') {
+      return services.init(yoObj);
+    }
+    return services.options(yoObj);
   },
 
   constructor: function () {
@@ -32,6 +40,7 @@ module.exports = yeoman.Base.extend({
       description: this.usage
     });
     if (!this.cliAction || this.cliAction === 'init') {
+      this.cliAction = 'init';
       this.log(yosay(
         chalk.red('Welcome!') + '\n' +
         chalk.green('You\'re using the definitive generator for scaffolding a Weppy application!')
@@ -41,84 +50,26 @@ module.exports = yeoman.Base.extend({
       this.log(
         chalk.red(this.usage)
       );
-      process.exit(1)
+      throw new Error(`Unknown argument ${this.cliAction}. Please check usage.`);
     }
   },
 
   prompting: function () {
     return this.prompt(
-      this._getPrompts(yoObj)
+      this._getPrompts(this)
     ).then(function (answers) {
       this.log('app name', answers.packageName);
       this.log('python version', answers.pythonVersion);
       this.answers = answers;
       if (this.answers.license) {
-        this.answers.includeLicense = "include LICENSE"
+        this.answers.includeLicense = 'include LICENSE';
       } else {
-        this.answers.includeLicense = ""
+        this.answers.includeLicense = '';
       }
     }.bind(this));
   },
 
   writing: function () {
-    this._templateMap = {
-      app_name: this.answers.packageName,
-      packageName: this.answers.packageName,
-      app_title: _.startCase(this.answers.packageName),
-      reqMajor: this.answers.pythonVersion[0],
-      reqMinor: this.answers.pythonVersion[1],
-      reqPatch: this.answers.pythonVersion[2],
-      username: this.answers.username,
-      packageDescription: this.answers.packageDescription,
-      license: this.answers.license,
-      year: this._defaultYear(),
-      includeLicense: this.answers.includeLicense,
-      weppyVersion: weppyVersion
-    };
-    if (this.answers.useDirectory != this.appname) {
-      this.destinationRoot(this.answers.useDirectory);
-    }
-    this.fs.copyTpl(
-      this.templatePath('*'),
-      this.destinationPath(),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('starter_weppy/**/*'),
-      this.destinationPath(this.answers.packageName),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('tests/*'),
-      this.destinationPath('tests'),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('dotfiles/_travis.yml'),
-      this.destinationPath('.travis.yml'),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('dotfiles/_coveragerc'),
-      this.destinationPath('.coveragerc'),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('dotfiles/_gitignore'),
-      this.destinationPath('.gitignore'),
-      this._templateMap
-    );
-    this.fs.copyTpl(
-      this.templatePath('dot_github/*'),
-      this.destinationPath('.github/'),
-      this._templateMap
-    );
-    if ( this.answers.license ) {
-      this.fs.copyTpl(
-        this.templatePath('licenses/' + this.answers.license),
-        this.destinationPath('LICENSE'),
-        this._templateMap
-      )
-    }
+    this._runWriteService(this);
   }
 });
